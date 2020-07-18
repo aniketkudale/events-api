@@ -1,5 +1,5 @@
 # Events API
-A CRUD API for Events
+A CRUD API for Events built using NodeJS, MongoDB, Express and Mongoose.
 
 ## API Specs
 Create the backend for a events directory website. 
