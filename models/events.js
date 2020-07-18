@@ -6,36 +6,36 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide event name'],
     trim: true,
-    maxlength: [50, 'Name cannot be more than 50 characters']
+    maxlength: [50, 'Name cannot be more than 50 characters'],
   },
   slug: String,
   website: {
-    type: String
+    type: String,
   },
   city: {
     type: String,
-    required: [true, 'Please provide city name']
+    required: [true, 'Please provide city name'],
   },
   country: {
     type: String,
-    required: [true, 'Please provide country name']
+    required: [true, 'Please provide country name'],
   },
   twitter: {
-    type: String
+    type: String,
   },
   startDate: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: true
-  }
+    required: true,
+  },
 });
 
 // Create
-eventSchema.pre('save', function(next) {
+eventSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });

@@ -1,11 +1,11 @@
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require('../utils/errorResponse');
 
 const errorHandler = (err, req, res, next) => {
-  let error = {...err};
+  let error = { ...err };
   error.message = err.message;
 
   // Invalid Object ID
-  if(err.name === 'CastError') {
+  if (err.name === 'CastError') {
     const message = `Resource not found with id of ${err.value}`;
     error = new ErrorResponse(message, 404);
   }
@@ -18,14 +18,14 @@ const errorHandler = (err, req, res, next) => {
 
   //Mongoose VAlidation Error
   if (err.name == 'ValidationError') {
-    const message = Object.values(err.errors).map(val => val.message);
+    const message = Object.values(err.errors).map((val) => val.message);
     error = new ErrorResponse(message, 400);
   }
 
   res.status(error.statusCode).json({
     success: false,
-    error: error.message || 'Server Error'
+    error: error.message || 'Server Error',
   });
 };
 
-module.exports = errorHandler; 
+module.exports = errorHandler;

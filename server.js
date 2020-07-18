@@ -18,7 +18,7 @@ const events = require('./routes/events');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
 
-dotenv.config({ path: './config/config.env'});
+dotenv.config({ path: './config/config.env' });
 
 connectDB();
 
@@ -45,7 +45,7 @@ app.use(xssClean());
 
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 1
+  max: 1,
 });
 
 app.use(limiter);
@@ -65,10 +65,10 @@ app.use('/api/v1/users', users);
 // Error handlers
 app.use(errorHandler);
 
-
-
 const server = app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT} on ${process.env.NODE_ENV}!`.yellow.bold);
+  console.log(
+    `App listening on port ${PORT} on ${process.env.NODE_ENV}!`.yellow.bold,
+  );
 });
 
 // Handle unhandled promise rejection
