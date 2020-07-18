@@ -1,5 +1,7 @@
-# Events Backend API Specifications
+# Events API
+A CRUD API for Events
 
+## API Specs
 Create the backend for a events directory website. 
 
 ### Events
@@ -26,19 +28,6 @@ Create the backend for a events directory website.
   * Owner only
 - Calculate the average cost of all courses for a event
 - Calculate the average rating from the reviews for a event
-  
-### Reviews
-- List all reviews for a event
-- List all reviews in general
-  * Pagination, filtering, etc
-- Get a single review
-- Create a review
-  * Authenticated users only
-  * Must have the role "user" or "admin" (no publishers)
-- Update review
-  * Owner only
-- Delete review
-  * Owner only
 
 ### Users & Authentication
 - Authentication will be done using JWT/cookies
@@ -67,11 +56,41 @@ Create the backend for a events directory website.
   * Admin only
 - Users can only be made admin by updating the database field manually
 
-## Security
+### Security
 - Encrypt passwords and reset tokens
 - Prevent NoSQL injections
 - Add headers for security (helmet)
 - Prevent cross site scripting - XSS
 - Add a rate limit for requests of 100 requests per 10 minutes
 - Protect against http param polution
-- Use cors to make API public (for now)
+
+### How to setup
+1. Clone the repo
+2. Run `npm install` to install dependencies
+3. Add config details in such as Mongo URI, SMTP setup etc. in `config/config.env`
+
+```
+NODE_ENV=development
+PORT=5000
+MONGO_URI=
+
+FILE_UPLOAD_PATH= ./public/uploads
+MAX_FILE_UPLOAD=1000000
+
+JWT_SECRET=Venu123
+JWT_EXPIRE=20d
+
+SMTP_HOST=
+SMTP_POST=
+SMTP_EMAIL=
+SMTP_PASSWORD=
+FROM_EMAIL=
+FROM=NAME=
+```
+4. Run using `npm run dev`
+
+## API Documentation
+[API Documentation](https://documenter.getpostman.com/view/10649161/T1Djjz3B?version=latest)
+
+## Copyright
+MIT (C) 2020 Aniket Kudale
