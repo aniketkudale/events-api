@@ -10,8 +10,6 @@ Create the backend for a events directory website.
    * Select specific fields in result
    * Limit number of results
    * Filter by fields
-- Search events by radius from zipcode
-  * Use a geocoder to get exact location and coords from a single address field
 - Get single event
 - Create new event
   * Authenticated users only
@@ -26,8 +24,6 @@ Create the backend for a events directory website.
   * Validation on update
 - Delete event
   * Owner only
-- Calculate the average cost of all courses for a event
-- Calculate the average rating from the reviews for a event
 
 ### Users & Authentication
 - Authentication will be done using JWT/cookies
